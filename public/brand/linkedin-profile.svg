@@ -1,0 +1,115 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bgR" cx="42%" cy="38%" r="58%">
+      <stop offset="0%" stop-color="#1e4070"/>
+      <stop offset="55%" stop-color="#0e2248"/>
+      <stop offset="100%" stop-color="#071020"/>
+    </radialGradient>
+    <radialGradient id="igR" cx="50%" cy="46%" r="48%">
+      <stop offset="0%" stop-color="#3ab8d8" stop-opacity="0.28"/>
+      <stop offset="100%" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bodyG" x1="8%" y1="5%" x2="92%" y2="95%">
+      <stop offset="0%"   stop-color="#90e4f8"/>
+      <stop offset="28%"  stop-color="#40aed8"/>
+      <stop offset="68%"  stop-color="#1878b8"/>
+      <stop offset="100%" stop-color="#0c5090"/>
+    </linearGradient>
+    <linearGradient id="hlG" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#c0f0ff" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#c0f0ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="hlB" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#98ddf4" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#98ddf4" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="arrG" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#d0f0ff"/>
+    </linearGradient>
+    <filter id="arrGlow" x="-60%" y="-40%" width="220%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="iconGlow" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="12" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" rx="72" fill="url(#bgR)"/>
+  <rect width="400" height="400" rx="72" fill="url(#igR)"/>
+
+  <!-- Subtle grid dots -->
+  <g fill="#4ac0d8" opacity="0.06">
+    <circle cx="80"  cy="80"  r="2"/><circle cx="200" cy="80"  r="2"/><circle cx="320" cy="80"  r="2"/>
+    <circle cx="80"  cy="200" r="2"/><circle cx="320" cy="200" r="2"/>
+    <circle cx="80"  cy="320" r="2"/><circle cx="200" cy="320" r="2"/><circle cx="320" cy="320" r="2"/>
+  </g>
+
+  <!-- ── HOURGLASS (centred, 260px tall, 280px wide at top) ── -->
+  <!-- Center: 200,200. Top bowl top: y=70. Waist: y=218. Base bottom: y=330. -->
+  <!-- Top bowl: x from 50 to 350 at y=70; x from 156 to 244 at y=218 -->
+  <!-- Base: x from 156 to 244 at y=218; x from 116 to 284 at y=330 -->
+
+  <!-- TOP BOWL fill -->
+  <path d="M 52 76
+    C 76 142 128 202 156 218
+    L 244 218
+    C 272 202 324 142 348 76
+    Z"
+    fill="url(#bodyG)"/>
+
+  <!-- Top opening ellipse -->
+  <ellipse cx="200" cy="76" rx="148" ry="30" fill="url(#bodyG)"/>
+
+  <!-- Bowl left-edge highlight -->
+  <path d="M 52 76
+    C 76 142 128 202 156 218
+    L 144 215
+    C 112 198 62 136 38 76
+    Z"
+    fill="url(#hlG)"/>
+
+  <!-- Bowl inner concave shadow -->
+  <path d="M 64 88
+    C 90 150 136 204 162 218
+    L 238 218
+    C 264 204 310 150 336 88
+    Q 270 104 200 108
+    Q 130 104 64 88 Z"
+    fill="#082248" opacity="0.44"/>
+
+  <!-- WAIST -->
+  <ellipse cx="200" cy="218" rx="44" ry="11" fill="#082248" opacity="0.72"/>
+
+  <!-- BASE fill -->
+  <path d="M 156 218
+    L 116 330
+    L 284 330
+    L 244 218
+    Z"
+    fill="url(#bodyG)"/>
+
+  <!-- Base bottom ellipse -->
+  <ellipse cx="200" cy="330" rx="84" ry="21" fill="url(#bodyG)"/>
+
+  <!-- Base left-edge highlight -->
+  <path d="M 156 218 L 116 330 L 138 330 L 174 218 Z"
+    fill="url(#hlB)"/>
+
+  <!-- Base inner shadow -->
+  <path d="M 160 220 L 122 328 L 278 328 L 240 220
+    Q 200 232 160 220 Z"
+    fill="#082248" opacity="0.30"/>
+
+  <!-- ── ARROW ── -->
+  <!-- Head: tip at y=22, base at y=82, spans x=152 to x=248 -->
+  <polygon points="200,22  152,82  248,82"
+    fill="url(#arrG)" filter="url(#arrGlow)"/>
+
+  <!-- Shaft: from y=82 down to y=190 (into funnel body) -->
+  <rect x="186" y="82" width="28" height="126" rx="4"
+    fill="url(#arrG)" filter="url(#arrGlow)"/>
+</svg>

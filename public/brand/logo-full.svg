@@ -1,0 +1,83 @@
+<svg width="680" height="120" viewBox="0 0 680 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bgR" cx="40%" cy="38%" r="55%">
+      <stop offset="0%" stop-color="#1a3a6a"/>
+      <stop offset="100%" stop-color="#091828"/>
+    </radialGradient>
+    <linearGradient id="bodyG" x1="10%" y1="5%" x2="90%" y2="95%">
+      <stop offset="0%"   stop-color="#88dff5"/>
+      <stop offset="30%"  stop-color="#3aaad4"/>
+      <stop offset="70%"  stop-color="#1e72a8"/>
+      <stop offset="100%" stop-color="#0e4878"/>
+    </linearGradient>
+    <linearGradient id="hlG" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#b0eeff" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#b0eeff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="hlB" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#90d8f0" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#90d8f0" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="arrG" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#c8eeff"/>
+    </linearGradient>
+    <filter id="arrGlow" x="-60%" y="-40%" width="220%" height="180%">
+      <feGaussianBlur stdDeviation="2.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="igR" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3ab8d8" stop-opacity="0.20"/>
+      <stop offset="100%" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Icon background pill -->
+  <rect x="0" y="10" width="100" height="100" rx="20" fill="url(#bgR)"/>
+  <rect x="0" y="10" width="100" height="100" rx="20" fill="url(#igR)"/>
+
+  <!-- ── MINI HOURGLASS (scaled to ~80px high centred in 100x100 pill) ── -->
+  <!-- Scale factor: 80/190 ≈ 0.42 from 200×200 original, offset: x+10, y+17 -->
+  <!-- TOP BOWL -->
+  <path d="M 11.8 35.5
+    C 19.3 52.4 28.6 58.6 33.6 62.7
+    L 50.4 62.7
+    C 55.4 58.6 80.7 52.4 88.2 35.5 Z"
+    fill="url(#bodyG)"/>
+  <ellipse cx="50" cy="35.5" rx="38.2" ry="8" fill="url(#bodyG)"/>
+  <!-- Bowl left highlight -->
+  <path d="M 11.8 35.5 C 19.3 52.4 28.6 58.6 33.6 62.7 L 30 62 C 21 52 12.5 38 9.5 35.5 Z"
+    fill="url(#hlG)"/>
+  <!-- Bowl inner shadow -->
+  <path d="M 15.5 39 C 24 53.5 32 61 37 62.7 L 63 62.7 C 68 61 76 53.5 84.5 39 Q 68 44 50 45 Q 32 44 15.5 39 Z"
+    fill="#0a3060" opacity="0.45"/>
+
+  <!-- WAIST -->
+  <ellipse cx="50" cy="62.7" rx="10.5" ry="3" fill="#0a3060" opacity="0.7"/>
+
+  <!-- BASE -->
+  <path d="M 33.6 62.7 L 23.2 87.7 L 76.8 87.7 L 66.4 62.7 Z" fill="url(#bodyG)"/>
+  <ellipse cx="50" cy="87.7" rx="22.2" ry="5.8" fill="url(#bodyG)"/>
+  <!-- Base left highlight -->
+  <path d="M 33.6 62.7 L 23.2 87.7 L 28.4 87.7 L 38.5 62.7 Z" fill="url(#hlB)"/>
+  <!-- Base inner shadow -->
+  <path d="M 35 63.7 L 25 86.5 L 75 86.5 L 65 63.7 Q 50 67 35 63.7 Z" fill="#0a3060" opacity="0.28"/>
+
+  <!-- ARROW HEAD -->
+  <polygon points="50,17 36.5,36.5 63.5,36.5" fill="url(#arrG)" filter="url(#arrGlow)"/>
+  <!-- ARROW SHAFT -->
+  <rect x="46.5" y="36.5" width="7" height="35" rx="1.2" fill="url(#arrG)" filter="url(#arrGlow)"/>
+
+  <!-- ── TEXT ── -->
+  <!-- "Lead" — regular weight, slate white -->
+  <text x="118" y="58"
+    font-family="'Inter','Helvetica Neue',Arial,sans-serif"
+    font-size="38" font-weight="400" letter-spacing="-0.5"
+    fill="#e2eaf5">Lead</text>
+
+  <!-- "Waterfall" — extrabold, pure white -->
+  <text x="118" y="100"
+    font-family="'Inter','Helvetica Neue',Arial,sans-serif"
+    font-size="44" font-weight="800" letter-spacing="-1.5"
+    fill="#ffffff">Waterfall</text>
+</svg>

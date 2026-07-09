@@ -1,0 +1,207 @@
+<svg width="1584" height="396" viewBox="0 0 1584 396" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgG" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#060f1c"/>
+      <stop offset="50%"  stop-color="#091828"/>
+      <stop offset="100%" stop-color="#060f1c"/>
+    </linearGradient>
+    <radialGradient id="rightGlow" cx="78%" cy="50%" r="32%">
+      <stop offset="0%" stop-color="#1a88c8" stop-opacity="0.22"/>
+      <stop offset="100%" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="leftGlow" cx="18%" cy="50%" r="28%">
+      <stop offset="0%" stop-color="#1a88c8" stop-opacity="0.10"/>
+      <stop offset="100%" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bodyG" x1="8%" y1="5%" x2="92%" y2="95%">
+      <stop offset="0%"   stop-color="#90e4f8"/>
+      <stop offset="28%"  stop-color="#40aed8"/>
+      <stop offset="68%"  stop-color="#1878b8"/>
+      <stop offset="100%" stop-color="#0c5090"/>
+    </linearGradient>
+    <linearGradient id="hlG" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#c0f0ff" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#c0f0ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="hlB" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#98ddf4" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#98ddf4" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="arrG" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#d0f0ff"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#22d3ee" stop-opacity="0"/>
+      <stop offset="30%"  stop-color="#22d3ee" stop-opacity="0.9"/>
+      <stop offset="70%"  stop-color="#22d3ee" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#60d4f0"/>
+      <stop offset="100%" stop-color="#38a8d0"/>
+    </linearGradient>
+    <filter id="arrGlow" x="-60%" y="-40%" width="220%" height="180%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1584" height="396" fill="url(#bgG)"/>
+  <rect width="1584" height="396" fill="url(#rightGlow)"/>
+  <rect width="1584" height="396" fill="url(#leftGlow)"/>
+
+  <!-- Top & bottom accent lines -->
+  <rect x="0" y="0"   width="1584" height="2.5" fill="url(#accentLine)" opacity="0.6"/>
+  <rect x="0" y="393.5" width="1584" height="2.5" fill="url(#accentLine)" opacity="0.6"/>
+
+  <!-- Subtle grid -->
+  <g stroke="#22d3ee" stroke-width="0.5" stroke-opacity="0.04">
+    <line x1="0"    y1="99"  x2="1584" y2="99"/>
+    <line x1="0"    y1="198" x2="1584" y2="198"/>
+    <line x1="0"    y1="297" x2="1584" y2="297"/>
+    <line x1="264"  y1="0"   x2="264"  y2="396"/>
+    <line x1="528"  y1="0"   x2="528"  y2="396"/>
+    <line x1="792"  y1="0"   x2="792"  y2="396"/>
+    <line x1="1056" y1="0"   x2="1056" y2="396"/>
+    <line x1="1320" y1="0"   x2="1320" y2="396"/>
+  </g>
+
+  <!-- Divider between text and icon -->
+  <line x1="640" y1="48" x2="640" y2="348" stroke="#22d3ee" stroke-width="0.8" stroke-opacity="0.12"/>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- LEFT: text block -->
+  <!-- ══════════════════════════════════════════ -->
+
+  <!-- Eyebrow -->
+  <text x="72" y="116"
+    font-family="'Inter','Helvetica Neue',Arial,sans-serif"
+    font-size="13" font-weight="600" letter-spacing="4"
+    fill="#22d3ee" opacity="0.85">AUTONOMOUS AI · B2B LEAD GENERATION</text>
+
+  <!-- "Lead" -->
+  <text x="70" y="208"
+    font-family="'Inter','Helvetica Neue',Arial,sans-serif"
+    font-size="90" font-weight="300" letter-spacing="-3"
+    fill="#e8f4fb">Lead</text>
+
+  <!-- "Waterfall" with gradient -->
+  <text x="70" y="302"
+    font-family="'Inter','Helvetica Neue',Arial,sans-serif"
+    font-size="90" font-weight="800" letter-spacing="-4"
+    fill="url(#textGrad)">Waterfall</text>
+
+  <!-- Tagline -->
+  <text x="72" y="348"
+    font-family="'Inter','Helvetica Neue',Arial,sans-serif"
+    font-size="17" font-weight="400" letter-spacing="0.3"
+    fill="#5a8aaa">Stop trickling. Start flooding your pipeline.</text>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- RIGHT: hourglass icon (centred at x=1080, tall) -->
+  <!-- Hourglass: top y=28, waist y=222, base bottom y=362 -->
+  <!-- Top bowl: x from 870 to 1290 (±210 from cx=1080) -->
+  <!-- Waist: x from 1040 to 1120 (±40) -->
+  <!-- Base: x from 992 to 1168 (±88 from cx) -->
+  <!-- ══════════════════════════════════════════ -->
+
+  <!-- TOP BOWL fill -->
+  <path d="M 874 54
+    C 908 128 966 196 1040 222
+    L 1120 222
+    C 1194 196 1252 128 1286 54
+    Z"
+    fill="url(#bodyG)"/>
+
+  <!-- Top opening ellipse -->
+  <ellipse cx="1080" cy="54" rx="206" ry="40" fill="url(#bodyG)"/>
+
+  <!-- Bowl left-edge highlight -->
+  <path d="M 874 54
+    C 908 128 966 196 1040 222
+    L 1024 218
+    C 946 190 890 122 856 54
+    Z"
+    fill="url(#hlG)"/>
+
+  <!-- Bowl inner concave shadow -->
+  <path d="M 890 68
+    C 924 138 978 196 1046 222
+    L 1114 222
+    C 1182 196 1236 138 1270 68
+    Q 1178 88 1080 93
+    Q 982 88 890 68 Z"
+    fill="#06183a" opacity="0.42"/>
+
+  <!-- WAIST -->
+  <ellipse cx="1080" cy="222" rx="42" ry="10.5" fill="#06183a" opacity="0.72"/>
+
+  <!-- BASE fill -->
+  <path d="M 1040 222
+    L 994 356
+    L 1166 356
+    L 1120 222
+    Z"
+    fill="url(#bodyG)"/>
+
+  <!-- Base bottom ellipse -->
+  <ellipse cx="1080" cy="356" rx="86" ry="20" fill="url(#bodyG)"/>
+
+  <!-- Base left-edge highlight -->
+  <path d="M 1040 222 L 994 356 L 1016 356 L 1058 222 Z"
+    fill="url(#hlB)"/>
+
+  <!-- Base inner shadow -->
+  <path d="M 1044 225 L 1000 353 L 1160 353 L 1116 225
+    Q 1080 236 1044 225 Z"
+    fill="#06183a" opacity="0.28"/>
+
+  <!-- ARROW (tip: y=12, head-base: y=68, shaft bottom: y=198) -->
+  <polygon points="1080,12  1030,68  1130,68"
+    fill="url(#arrG)" filter="url(#arrGlow)"/>
+
+  <rect x="1066" y="68" width="28" height="130" rx="4"
+    fill="url(#arrG)" filter="url(#arrGlow)"/>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- Dashboard card (bottom-right corner) -->
+  <!-- ══════════════════════════════════════════ -->
+  <rect x="1290" y="258" width="258" height="112" rx="14"
+    fill="rgba(8,20,44,0.88)" stroke="#22d3ee" stroke-width="1" stroke-opacity="0.30"/>
+  <!-- Top glow line -->
+  <line x1="1350" y1="258" x2="1488" y2="258"
+    stroke="#22d3ee" stroke-width="1.5" stroke-opacity="0.55"/>
+
+  <text x="1306" y="280" font-family="'Inter',Arial,sans-serif"
+    font-size="9" font-weight="600" letter-spacing="2.5" fill="#22d3ee" opacity="0.85">LIVE PIPELINE INJECTION</text>
+
+  <text x="1306" y="302" font-family="'Inter',Arial,sans-serif"
+    font-size="10" fill="#4a7a9a">LEADS PUSHED</text>
+
+  <text x="1306" y="332" font-family="'Inter',Arial,sans-serif"
+    font-size="30" font-weight="800" fill="#f0f8ff" letter-spacing="-1">12,493</text>
+  <text x="1370" y="312" font-family="'Inter',Arial,sans-serif"
+    font-size="12" fill="#22d3ee">↑</text>
+
+  <text x="1424" y="302" font-family="'Inter',Arial,sans-serif"
+    font-size="10" fill="#4a7a9a">CONVERSION</text>
+
+  <!-- Mini bar chart -->
+  <g fill="#22d3ee" opacity="0.75">
+    <rect x="1426" y="346" width="6" height="12" rx="1.5"/>
+    <rect x="1436" y="338" width="6" height="20" rx="1.5"/>
+    <rect x="1446" y="328" width="6" height="30" rx="1.5"/>
+    <rect x="1456" y="330" width="6" height="28" rx="1.5"/>
+    <rect x="1466" y="320" width="6" height="38" rx="1.5"/>
+    <rect x="1476" y="314" width="6" height="44" rx="1.5"/>
+    <rect x="1486" y="310" width="6" height="48" rx="1.5"/>
+  </g>
+  <text x="1428" y="370" font-family="'Inter',Arial,sans-serif"
+    font-size="14" font-weight="700" fill="#22d3ee">66%</text>
+
+  <!-- Live dot -->
+  <circle cx="1300" cy="318" r="4" fill="#22d3ee" opacity="0.9"/>
+  <circle cx="1300" cy="318" r="7" fill="none" stroke="#22d3ee" stroke-width="1" stroke-opacity="0.35"/>
+</svg>

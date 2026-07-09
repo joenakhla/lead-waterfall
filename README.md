@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lead Waterfall
 
-## Getting Started
+AI-powered B2B lead generation SaaS marketing website. Built with Next.js 16 App Router, Tailwind CSS, Framer Motion, and Supabase.
 
-First, run the development server:
+## Quick Start
 
 ```bash
+# 1. Install dependencies
+npm install
+
+# 2. Configure environment
+cp .env.local.example .env.local
+# Fill in your Supabase credentials
+
+# 3. Dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Supabase Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Run in your Supabase SQL editor:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sql
+create table leads (
+  id uuid default gen_random_uuid() primary key,
+  created_at timestamptz default now() not null,
+  email text not null,
+  company_name text,
+  lead_goal text
+);
 
-## Learn More
+alter table leads enable row level security;
 
-To learn more about Next.js, take a look at the following resources:
+create policy "Allow public inserts" on leads
+  for insert with check (true);
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploy to Vercel
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Push to GitHub
+2. Import on [vercel.com/new](https://vercel.com/new)
+3. Add env vars: `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+4. Deploy
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+app/
+  layout.tsx           Root layout + metadata
+  page.tsx             Main page
+  globals.css          Tailwind base styles
+components/
+  Navbar.tsx           Sticky glassmorphic navigation
+  Hero.tsx             Hero + animated data waterfall canvas
+  Features.tsx         Bento grid feature cards
+  PipelineSimulator.tsx  Interactive slider + particle stream
+  LeadCaptureForm.tsx  Supabase lead capture form
+  Pricing.tsx          3-tier pricing (monthly/annual toggle)
+  Footer.tsx           Footer with links and socials
+lib/
+  supabaseClient.js    Supabase client singleton
+```
