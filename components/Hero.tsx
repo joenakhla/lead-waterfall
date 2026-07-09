@@ -6,8 +6,8 @@ import { ArrowRight, TrendingUp, Users, Zap, CheckCircle } from 'lucide-react';
 const fade = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] },
-});
+  transition: { duration: 0.65, delay, ease: 'easeOut' },
+} as const);
 
 const metrics = [
   { value: '12,493', label: 'Leads injected today', icon: TrendingUp, color: '#0891b2' },
@@ -72,7 +72,7 @@ export default function Hero() {
                   <motion.span
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
-                    transition={{ duration: 0.7, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 0.7, delay: 0.55, ease: 'easeOut' }}
                     className="absolute -bottom-1 left-0 right-0 h-1 rounded-full origin-left"
                     style={{ background: 'linear-gradient(90deg, #0891b2, #0d9488)' }}
                   />
@@ -126,7 +126,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, x: 32 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
             className="relative"
           >
             {/* Main card */}
@@ -189,7 +189,7 @@ export default function Hero() {
                       <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: `${s.pct}%` }}
-                        transition={{ duration: 0.9, delay: 0.6 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                        transition={{ duration: 0.9, delay: 0.6 + i * 0.12, ease: 'easeOut' }}
                         className="h-full rounded-full"
                         style={{ background: 'linear-gradient(90deg, #0891b2, #0d9488)' }}
                       />
