@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 
 const links = ['Features', 'Process', 'Pricing'];
 
@@ -34,7 +35,14 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
-        <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center group">
+        <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2.5 group">
+          <Image
+            src="/brand/logo-icon.svg"
+            alt="Lead Waterfall"
+            width={36}
+            height={36}
+            className="w-9 h-9 group-hover:scale-105 transition-transform duration-200"
+          />
           <span className="font-bold text-xl tracking-tight">
             <span className="text-cyan-400">Lead</span>
             <span className="text-white"> Waterfall</span>

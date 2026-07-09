@@ -7,13 +7,19 @@ import FunnelCanvas from './FunnelCanvas';
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-16">
-      {/* Background */}
-      <div className="absolute inset-0 bg-[#080c14]">
+      {/* Mesh background */}
+      <div className="absolute inset-0 bg-slate-950">
         <div className="absolute inset-0" style={{
           backgroundImage: `
-            radial-gradient(ellipse at 72% 50%, rgba(6,182,212,0.13) 0%, transparent 50%),
-            radial-gradient(ellipse at 18% 40%, rgba(20,184,166,0.05) 0%, transparent 45%)
+            radial-gradient(ellipse at 70% 50%, rgba(6,182,212,0.10) 0%, transparent 55%),
+            radial-gradient(ellipse at 20% 30%, rgba(20,184,166,0.06) 0%, transparent 50%),
+            radial-gradient(ellipse at 50% 100%, rgba(6,182,212,0.04) 0%, transparent 40%)
           `
+        }} />
+        {/* Grid */}
+        <div className="absolute inset-0" style={{
+          backgroundImage: `linear-gradient(rgba(6,182,212,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(6,182,212,0.025) 1px, transparent 1px)`,
+          backgroundSize: '60px 60px'
         }} />
       </div>
 
@@ -22,6 +28,17 @@ export default function Hero() {
 
           {/* ── LEFT: Text content ── */}
           <div className="flex flex-col justify-center order-2 lg:order-1">
+
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/5 text-cyan-400 text-xs font-semibold uppercase tracking-widest mb-7 w-fit"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+              Autonomous AI · Real-Time Leads · Zero Manual Work
+            </motion.div>
 
             {/* Headline */}
             <motion.h1
@@ -60,19 +77,20 @@ export default function Hero() {
             >
               <button
                 onClick={() => document.getElementById('leadcapture')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group flex items-center gap-2.5 px-8 py-3.5 rounded-full text-base font-semibold text-slate-950
+                className="group flex items-center gap-2.5 px-8 py-3.5 rounded-xl text-base font-semibold text-slate-950
                   bg-gradient-to-r from-cyan-400 to-teal-400 hover:from-cyan-300 hover:to-teal-300
                   transition-all duration-200 shadow-[0_0_24px_rgba(6,182,212,0.4)] hover:shadow-[0_0_36px_rgba(6,182,212,0.65)]
                   hover:scale-[1.03]"
               >
                 Start Your Free Trial
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="group flex items-center gap-2.5 px-7 py-3.5 rounded-full text-base font-semibold text-white
-                border border-slate-600/70 hover:border-cyan-500/40 bg-slate-900/40 hover:bg-slate-800/60
+              <button className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl text-base font-semibold text-white
+                border border-slate-700 hover:border-cyan-500/40 bg-slate-900/50 hover:bg-slate-800/60
                 transition-all duration-200"
               >
-                <div className="w-6 h-6 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center group-hover:border-cyan-500/50 transition-colors">
-                  <Play className="w-2.5 h-2.5 text-white ml-0.5" />
+                <div className="w-7 h-7 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
+                  <Play className="w-3 h-3 text-cyan-400 ml-0.5" />
                 </div>
                 Watch Demo
               </button>
