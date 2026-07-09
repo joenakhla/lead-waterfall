@@ -1,95 +1,73 @@
 <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bgG" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1a3a6a"/>
-      <stop offset="100%" stop-color="#0c1e3e"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f2a4a"/>
+      <stop offset="100%" stop-color="#081828"/>
     </linearGradient>
-    <linearGradient id="bodyG" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%"   stop-color="#a8e8f8"/>
-      <stop offset="35%"  stop-color="#48bce0"/>
-      <stop offset="75%"  stop-color="#1e7ab8"/>
-      <stop offset="100%" stop-color="#0c4a88"/>
+    <linearGradient id="fillTop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#7de8f8" stop-opacity="0.55"/>
+      <stop offset="60%"  stop-color="#22b8d8" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#0a6898" stop-opacity="0.2"/>
     </linearGradient>
-    <linearGradient id="strokeG" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%"   stop-color="#c0f0ff"/>
-      <stop offset="50%"  stop-color="#50c8e8"/>
-      <stop offset="100%" stop-color="#1878b8"/>
+    <linearGradient id="fillBot" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#0a6898" stop-opacity="0.2"/>
+      <stop offset="40%"  stop-color="#22b8d8" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#7de8f8" stop-opacity="0.55"/>
     </linearGradient>
-    <linearGradient id="sheenG" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%"   stop-color="#d0f4ff" stop-opacity="0.55"/>
-      <stop offset="40%"  stop-color="#90d8f0" stop-opacity="0.18"/>
-      <stop offset="100%" stop-color="#90d8f0" stop-opacity="0"/>
+    <linearGradient id="stroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#88e8f8"/>
+      <stop offset="50%"  stop-color="#22c8e8"/>
+      <stop offset="100%" stop-color="#0898c8"/>
     </linearGradient>
-    <linearGradient id="arrG" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%"   stop-color="#ffffff"/>
-      <stop offset="100%" stop-color="#90d8f4"/>
-    </linearGradient>
-    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="5" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="arrGlow" x="-60%" y="-40%" width="220%" height="180%">
+    <filter id="glow">
       <feGaussianBlur stdDeviation="3.5" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="200" height="200" rx="36" fill="url(#bgG)"/>
-  <radialGradient id="igR" cx="42%" cy="38%" r="52%">
-    <stop offset="0%" stop-color="#2a6aaa" stop-opacity="0.45"/>
-    <stop offset="100%" stop-opacity="0"/>
-  </radialGradient>
-  <rect width="200" height="200" rx="36" fill="url(#igR)"/>
+  <rect width="200" height="200" rx="34" fill="url(#bg)"/>
 
-  <!-- TOP BOWL fill -->
-  <path d="M 32 42 C 34 78 54 108 86 118 L 114 118 C 146 108 166 78 168 42 Z"
-    fill="url(#bodyG)" opacity="0.88"/>
-  <ellipse cx="100" cy="42" rx="68" ry="13" fill="url(#bodyG)" opacity="0.92"/>
+  <!-- TOP HALF of hourglass -->
+  <!-- Top ellipse rim: cx=100 cy=42 rx=62 ry=12 -->
+  <!-- Taper to waist: cx=100 cy=102 rx=10 -->
 
-  <!-- Bowl inner concave shadow -->
-  <path d="M 42 50 C 46 82 62 108 90 118 L 110 118 C 138 108 154 82 158 50 Q 130 62 100 64 Q 70 62 42 50 Z"
-    fill="#071830" opacity="0.38"/>
+  <!-- Top fill -->
+  <path d="M 38 42 L 90 102 L 110 102 L 162 42 Z" fill="url(#fillTop)"/>
+  <ellipse cx="100" cy="42"  rx="62" ry="12" fill="url(#fillTop)"/>
 
-  <!-- Bowl left sheen -->
-  <path d="M 32 42 C 34 78 54 108 86 118 L 80 116 C 48 104 30 76 28 42 Z"
-    fill="url(#sheenG)"/>
+  <!-- BOTTOM HALF of hourglass (mirror) -->
+  <!-- Waist: cy=102, Base ellipse: cy=160 rx=62 ry=12 -->
 
-  <!-- WAIST -->
-  <ellipse cx="100" cy="118" rx="14" ry="7" fill="#071830" opacity="0.75"/>
+  <path d="M 90 102 L 38 162 L 162 162 L 110 102 Z" fill="url(#fillBot)"/>
+  <ellipse cx="100" cy="162" rx="62" ry="12" fill="url(#fillBot)"/>
 
-  <!-- BASE fill -->
-  <path d="M 86 118 L 50 170 L 150 170 L 114 118 Z"
-    fill="url(#bodyG)" opacity="0.88"/>
-  <ellipse cx="100" cy="170" rx="50" ry="12" fill="url(#bodyG)" opacity="0.92"/>
+  <!-- Outline strokes with glow -->
+  <!-- Top rim -->
+  <ellipse cx="100" cy="42"  rx="62" ry="12"
+    fill="none" stroke="url(#stroke)" stroke-width="2.2" filter="url(#glow)"/>
+  <!-- Bottom rim -->
+  <ellipse cx="100" cy="162" rx="62" ry="12"
+    fill="none" stroke="url(#stroke)" stroke-width="2.2" filter="url(#glow)"/>
+  <!-- Left edge top-half -->
+  <line x1="38" y1="42" x2="90" y2="102"
+    stroke="url(#stroke)" stroke-width="2.2" filter="url(#glow)"/>
+  <!-- Right edge top-half -->
+  <line x1="162" y1="42" x2="110" y2="102"
+    stroke="url(#stroke)" stroke-width="2.2" filter="url(#glow)"/>
+  <!-- Left edge bottom-half -->
+  <line x1="90" y1="102" x2="38" y2="162"
+    stroke="url(#stroke)" stroke-width="2.2" filter="url(#glow)"/>
+  <!-- Right edge bottom-half -->
+  <line x1="110" y1="102" x2="162" y2="162"
+    stroke="url(#stroke)" stroke-width="2.2" filter="url(#glow)"/>
 
-  <!-- Base left sheen -->
-  <path d="M 86 118 L 50 170 L 62 170 L 96 118 Z" fill="url(#sheenG)" opacity="0.8"/>
+  <!-- Waist ellipse -->
+  <ellipse cx="100" cy="102" rx="10" ry="4"
+    fill="none" stroke="url(#stroke)" stroke-width="1.6" filter="url(#glow)"/>
 
-  <!-- Base inner shadow -->
-  <path d="M 88 120 L 53 168 L 147 168 L 112 120 Q 100 126 88 120 Z"
-    fill="#071830" opacity="0.25"/>
-
-  <!-- OUTLINE STROKES -->
-  <path d="M 32 42 C 34 78 54 108 86 118"
-    fill="none" stroke="url(#strokeG)" stroke-width="2.2" filter="url(#glow)"/>
-  <path d="M 168 42 C 166 78 146 108 114 118"
-    fill="none" stroke="url(#strokeG)" stroke-width="2.2" filter="url(#glow)"/>
-  <path d="M 86 118 L 50 170"
-    fill="none" stroke="url(#strokeG)" stroke-width="2.2" filter="url(#glow)"/>
-  <path d="M 114 118 L 150 170"
-    fill="none" stroke="url(#strokeG)" stroke-width="2.2" filter="url(#glow)"/>
-  <ellipse cx="100" cy="42" rx="68" ry="13"
-    fill="none" stroke="url(#strokeG)" stroke-width="2" filter="url(#glow)"/>
-  <ellipse cx="100" cy="170" rx="50" ry="12"
-    fill="none" stroke="url(#strokeG)" stroke-width="1.8" filter="url(#glow)"/>
-  <ellipse cx="100" cy="118" rx="14" ry="7"
-    fill="none" stroke="#4ab8d8" stroke-width="1.4" opacity="0.7"/>
-
-  <!-- ARROW shaft -->
-  <rect x="94.5" y="52" width="11" height="62" rx="3"
-    fill="url(#arrG)" filter="url(#arrGlow)"/>
-  <!-- ARROW head -->
-  <polygon points="100,16  76,54  124,54"
-    fill="url(#arrG)" filter="url(#arrGlow)"/>
+  <!-- 3 dots at waist -->
+  <circle cx="86"  cy="102" r="2.8" fill="#44d8f0" filter="url(#glow)"/>
+  <circle cx="100" cy="102" r="2.8" fill="#44d8f0" filter="url(#glow)"/>
+  <circle cx="114" cy="102" r="2.8" fill="#44d8f0" filter="url(#glow)"/>
 </svg>
