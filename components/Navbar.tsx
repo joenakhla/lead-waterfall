@@ -29,8 +29,8 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-slate-950/80 backdrop-blur-xl border-b border-cyan-500/10 shadow-lg shadow-cyan-900/5'
-          : 'bg-transparent'
+          ? 'bg-white/90 backdrop-blur-xl border-b border-slate-100 shadow-sm'
+          : 'bg-white/70 backdrop-blur-sm border-b border-slate-100/60'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -43,9 +43,9 @@ export default function Navbar() {
             height={36}
             className="w-9 h-9 group-hover:scale-105 transition-transform duration-200"
           />
-          <span className="font-bold text-xl tracking-tight">
-            <span className="text-cyan-400">Lead</span>
-            <span className="text-white"> Waterfall</span>
+          <span className="font-bold text-xl tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>
+            <span className="text-cyan-600">Lead</span>
+            <span className="text-slate-900"> Waterfall</span>
           </span>
         </button>
 
@@ -55,10 +55,10 @@ export default function Navbar() {
             <button
               key={link}
               onClick={() => scrollTo(link)}
-              className="text-slate-400 hover:text-cyan-400 text-sm font-medium transition-colors duration-200 relative group"
+              className="text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors duration-200 relative group"
             >
               {link}
-              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-cyan-400 group-hover:w-full transition-all duration-300" />
+              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-cyan-600 group-hover:w-full transition-all duration-300" />
             </button>
           ))}
         </nav>
@@ -67,15 +67,16 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <button
             onClick={() => scrollTo('leadcapture')}
-            className="relative px-5 py-2 rounded-lg text-sm font-semibold text-slate-950 bg-gradient-to-r from-cyan-400 to-teal-400 hover:from-cyan-300 hover:to-teal-300 transition-all duration-200 shadow-[0_0_16px_rgba(6,182,212,0.4)] hover:shadow-[0_0_24px_rgba(6,182,212,0.6)]"
+            className="px-5 py-2 rounded-lg text-sm font-semibold text-white transition-all duration-200 hover:opacity-90"
+            style={{ background: 'linear-gradient(135deg, #0891b2, #0d9488)' }}
           >
-            Get Flooded
+            Get Started
           </button>
         </div>
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-slate-400 hover:text-white transition-colors"
+          className="md:hidden text-slate-500 hover:text-slate-900 transition-colors"
           onClick={() => setMobileOpen((o) => !o)}
         >
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -90,23 +91,24 @@ export default function Navbar() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden overflow-hidden bg-slate-950/95 backdrop-blur-xl border-b border-cyan-500/10"
+            className="md:hidden overflow-hidden bg-white border-b border-slate-100"
           >
             <div className="px-4 py-4 flex flex-col gap-3">
               {links.map((link) => (
                 <button
                   key={link}
                   onClick={() => scrollTo(link)}
-                  className="text-slate-300 hover:text-cyan-400 text-sm font-medium py-2 text-left transition-colors"
+                  className="text-slate-600 hover:text-slate-900 text-sm font-medium py-2 text-left transition-colors"
                 >
                   {link}
                 </button>
               ))}
               <button
                 onClick={() => scrollTo('leadcapture')}
-                className="mt-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-slate-950 bg-gradient-to-r from-cyan-400 to-teal-400"
+                className="mt-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white"
+                style={{ background: 'linear-gradient(135deg, #0891b2, #0d9488)' }}
               >
-                Get Flooded
+                Get Started
               </button>
             </div>
           </motion.div>

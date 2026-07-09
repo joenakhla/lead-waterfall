@@ -1,190 +1,244 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Play } from 'lucide-react';
-import FunnelCanvas from './FunnelCanvas';
+import { ArrowRight, TrendingUp, Users, Zap, CheckCircle } from 'lucide-react';
+
+const fade = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] },
+});
+
+const metrics = [
+  { value: '12,493', label: 'Leads injected today', icon: TrendingUp, color: '#0891b2' },
+  { value: '94%', label: 'Email accuracy rate', icon: CheckCircle, color: '#0d9488' },
+  { value: '<2 min', label: 'CRM sync time', icon: Zap, color: '#7c3aed' },
+];
+
+const steps = [
+  { label: 'Data Sourcing', sub: '50+ networks crawled', pct: 100 },
+  { label: 'Intent Scoring', sub: 'AI-ranked by signal', pct: 78 },
+  { label: 'Enrichment', sub: 'Email + LinkedIn verified', pct: 60 },
+  { label: 'CRM Injection', sub: 'Real-time pipeline push', pct: 44 },
+];
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-16">
-      {/* Mesh background */}
-      <div className="absolute inset-0 bg-slate-950">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `
-            radial-gradient(ellipse at 70% 50%, rgba(6,182,212,0.10) 0%, transparent 55%),
-            radial-gradient(ellipse at 20% 30%, rgba(20,184,166,0.06) 0%, transparent 50%),
-            radial-gradient(ellipse at 50% 100%, rgba(6,182,212,0.04) 0%, transparent 40%)
-          `
-        }} />
-        {/* Grid */}
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(rgba(6,182,212,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(6,182,212,0.025) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
-        }} />
-      </div>
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-white pt-16">
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center min-h-[calc(100vh-4rem)] py-16 lg:py-24">
+      {/* Subtle dot-grid background */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(circle, #e2e8f0 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+          opacity: 0.55,
+        }}
+      />
+      {/* Soft cyan bloom — top right */}
+      <div className="absolute -top-40 right-0 w-[680px] h-[680px] rounded-full pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(8,145,178,0.07) 0%, transparent 70%)' }}
+      />
 
-          {/* ── LEFT: Text content ── */}
-          <div className="flex flex-col justify-center order-2 lg:order-1">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-12 items-center">
 
-            {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/5 text-cyan-400 text-xs font-semibold uppercase tracking-widest mb-7 w-fit"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-              Autonomous AI · Real-Time Leads · Zero Manual Work
+          {/* ── LEFT ── */}
+          <div className="flex flex-col">
+
+            {/* Eyebrow */}
+            <motion.div {...fade(0)} className="flex items-center gap-2 mb-8">
+              <span className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-[0.18em] uppercase text-cyan-700 bg-cyan-50 border border-cyan-200 px-3 py-1.5 rounded-full">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse" />
+                AI · B2B Lead Generation
+              </span>
             </motion.div>
 
             {/* Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.08 }}
-              className="text-4xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight text-white leading-[1.05] mb-6"
+            <motion.h1 {...fade(0.08)}
+              className="mb-6 leading-[1.08] tracking-tight"
+              style={{ fontFamily: 'var(--font-display)' }}
             >
-              Push Unstoppable{' '}
-              <span
-                className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-cyan-500"
-                style={{ filter: 'drop-shadow(0 0 18px rgba(6,182,212,0.45))' }}
-              >
-                Volume
-              </span>{' '}
-              Into Your Sales Pipeline
+              <span className="block text-5xl sm:text-6xl xl:text-7xl font-light text-slate-900">
+                Stop chasing.
+              </span>
+              <span className="block text-5xl sm:text-6xl xl:text-7xl font-extrabold text-slate-900 mt-1">
+                Start{' '}
+                <span className="relative inline-block">
+                  <span className="relative z-10 text-transparent bg-clip-text"
+                    style={{ backgroundImage: 'linear-gradient(135deg, #0891b2, #0d9488)' }}>
+                    flooding.
+                  </span>
+                  {/* Underline accent */}
+                  <motion.span
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: 0.7, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                    className="absolute -bottom-1 left-0 right-0 h-1 rounded-full origin-left"
+                    style={{ background: 'linear-gradient(90deg, #0891b2, #0d9488)' }}
+                  />
+                </span>
+              </span>
             </motion.h1>
 
             {/* Subheadline */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.16 }}
-              className="text-slate-400 text-lg leading-relaxed mb-10 max-w-xl"
+            <motion.p {...fade(0.16)}
+              className="text-slate-500 text-lg leading-relaxed mb-10 max-w-lg"
+              style={{ fontFamily: 'var(--font-body)' }}
             >
-              Lead Waterfall uses autonomous AI agents to scrape, score, and inject high-converting B2B prospects directly into your CRM on autopilot.{' '}
-              <span className="text-slate-200 font-medium">Stop trickling. Start flooding.</span>
+              Lead Waterfall deploys autonomous AI agents that scrape, score, and inject
+              high-converting B2B prospects directly into your CRM —
+              <span className="text-slate-800 font-medium"> without lifting a finger.</span>
             </motion.p>
 
             {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.24 }}
-              className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-12"
-            >
+            <motion.div {...fade(0.22)} className="flex flex-wrap items-center gap-4 mb-12">
               <button
                 onClick={() => document.getElementById('leadcapture')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group flex items-center gap-2.5 px-8 py-3.5 rounded-xl text-base font-semibold text-slate-950
-                  bg-gradient-to-r from-cyan-400 to-teal-400 hover:from-cyan-300 hover:to-teal-300
-                  transition-all duration-200 shadow-[0_0_24px_rgba(6,182,212,0.4)] hover:shadow-[0_0_36px_rgba(6,182,212,0.65)]
-                  hover:scale-[1.03]"
+                className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl text-sm font-semibold text-white
+                  transition-all duration-200 hover:scale-[1.03] hover:shadow-xl"
+                style={{ background: 'linear-gradient(135deg, #0891b2, #0d9488)', boxShadow: '0 4px 24px rgba(8,145,178,0.30)' }}
               >
-                Start Your Free Trial
+                Start Free Trial
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl text-base font-semibold text-white
-                border border-slate-700 hover:border-cyan-500/40 bg-slate-900/50 hover:bg-slate-800/60
+              <button className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold text-slate-700
+                border border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50
                 transition-all duration-200"
+                style={{ fontFamily: 'var(--font-body)' }}
               >
-                <div className="w-7 h-7 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
-                  <Play className="w-3 h-3 text-cyan-400 ml-0.5" />
-                </div>
-                Watch Demo
+                See how it works
               </button>
             </motion.div>
 
-            {/* Social proof strip */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
-              className="flex flex-wrap items-center gap-6"
-            >
-              {[
-                { value: '12,493', label: 'Leads injected today' },
-                { value: '94%', label: 'Email accuracy' },
-                { value: '<2 min', label: 'CRM sync time' },
-              ].map((s) => (
-                <div key={s.label} className="flex items-center gap-2">
-                  <div className="text-lg font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-300">
-                    {s.value}
-                  </div>
-                  <div className="text-slate-500 text-xs leading-tight">{s.label}</div>
-                </div>
+            {/* Trust strip */}
+            <motion.div {...fade(0.30)} className="flex flex-wrap items-center gap-x-6 gap-y-2">
+              {['No credit card required', '7-day free trial', 'Cancel anytime'].map((t) => (
+                <span key={t} className="flex items-center gap-1.5 text-xs text-slate-400"
+                  style={{ fontFamily: 'var(--font-body)' }}>
+                  <CheckCircle className="w-3.5 h-3.5 text-teal-500 flex-shrink-0" />
+                  {t}
+                </span>
               ))}
             </motion.div>
           </div>
 
-          {/* ── RIGHT: Funnel visual ── */}
+          {/* ── RIGHT: Clean dashboard visual ── */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.2, ease: 'easeOut' }}
-            className="relative order-1 lg:order-2 flex flex-col items-center"
+            initial={{ opacity: 0, x: 32 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="relative"
           >
-            {/* Outer glow halo */}
-            <div className="absolute inset-0 rounded-3xl"
-              style={{ background: 'radial-gradient(ellipse at 50% 45%, rgba(6,182,212,0.12) 0%, transparent 70%)' }} />
+            {/* Main card */}
+            <div className="relative bg-white rounded-3xl border border-slate-100 shadow-2xl shadow-slate-200/60 p-6 overflow-hidden">
 
-            {/* Canvas container */}
-            <div className="relative w-full aspect-[4/5] max-w-sm sm:max-w-md lg:max-w-full lg:h-[580px] lg:aspect-auto">
-              <FunnelCanvas className="rounded-2xl" />
-
-              {/* Dashboard card overlay — bottom right */}
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.7 }}
-                className="absolute bottom-4 right-2 sm:right-4 w-52 sm:w-60 rounded-xl border border-cyan-500/25 bg-slate-950/90 backdrop-blur-sm p-3.5 shadow-xl"
-                style={{ boxShadow: '0 0 30px rgba(6,182,212,0.12)' }}
-              >
-                {/* Top glow line */}
-                <div className="absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-cyan-500/60 to-transparent" />
-
-                <div className="flex items-center gap-1.5 mb-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                  <span className="text-cyan-400 text-[9px] font-bold tracking-[0.2em] uppercase">Live Pipeline Injection</span>
-                </div>
-
-                <div className="grid grid-cols-2 gap-2">
-                  <div>
-                    <div className="text-slate-500 text-[9px] font-medium uppercase tracking-wide mb-0.5">Leads Pushed</div>
-                    <div className="flex items-end gap-1">
-                      <span className="text-xl font-extrabold text-white">12,493</span>
-                      <span className="text-cyan-400 text-xs mb-0.5 font-bold">↑</span>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-slate-500 text-[9px] font-medium uppercase tracking-wide mb-1">AI Conversion</div>
-                    {/* Mini bar chart */}
-                    <div className="flex items-end gap-0.5 h-6">
-                      {[6, 9, 7, 11, 10, 14, 13].map((h, i) => (
-                        <div
-                          key={i}
-                          className="flex-1 rounded-sm bg-cyan-500/70"
-                          style={{ height: `${(h / 14) * 100}%` }}
-                        />
-                      ))}
-                    </div>
-                    <div className="text-cyan-400 text-xs font-bold mt-0.5">66%</div>
+              {/* Card header */}
+              <div className="flex items-center justify-between mb-6">
+                <div>
+                  <p className="text-[11px] font-semibold tracking-widest uppercase text-slate-400 mb-0.5"
+                    style={{ fontFamily: 'var(--font-body)' }}>Pipeline Status</p>
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-sm font-bold text-slate-800"
+                      style={{ fontFamily: 'var(--font-display)' }}>Active · Injecting now</span>
                   </div>
                 </div>
-              </motion.div>
+                <span className="text-[10px] font-semibold tracking-widest uppercase bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-1 rounded-full">
+                  LIVE
+                </span>
+              </div>
 
-              {/* Top-left floating stat pill */}
-              <motion.div
-                initial={{ opacity: 0, x: -16 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.9 }}
-                className="absolute top-6 left-2 sm:left-4 flex items-center gap-2 px-3 py-1.5 rounded-full border border-teal-500/25 bg-slate-950/85 backdrop-blur-sm text-xs"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
-                <span className="text-teal-400 font-semibold">50+ data networks</span>
-              </motion.div>
+              {/* Metric cards row */}
+              <div className="grid grid-cols-3 gap-3 mb-6">
+                {metrics.map((m, i) => {
+                  const Icon = m.icon;
+                  return (
+                    <motion.div
+                      key={m.label}
+                      initial={{ opacity: 0, y: 16 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
+                      className="bg-slate-50 rounded-2xl p-3.5 border border-slate-100"
+                    >
+                      <Icon className="w-4 h-4 mb-2" style={{ color: m.color }} />
+                      <div className="text-xl font-extrabold text-slate-900 leading-tight"
+                        style={{ fontFamily: 'var(--font-display)' }}>{m.value}</div>
+                      <div className="text-[10px] text-slate-400 mt-0.5 leading-tight"
+                        style={{ fontFamily: 'var(--font-body)' }}>{m.label}</div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+
+              {/* Pipeline funnel bars */}
+              <div className="space-y-3">
+                <p className="text-[11px] font-semibold tracking-widest uppercase text-slate-400 mb-3"
+                  style={{ fontFamily: 'var(--font-body)' }}>Pipeline Flow</p>
+                {steps.map((s, i) => (
+                  <div key={s.label}>
+                    <div className="flex items-center justify-between mb-1.5">
+                      <div className="flex items-center gap-2">
+                        <span className="w-5 h-5 rounded-full bg-slate-100 text-[10px] font-bold text-slate-500 flex items-center justify-center"
+                          style={{ fontFamily: 'var(--font-display)' }}>{i + 1}</span>
+                        <span className="text-xs font-semibold text-slate-700"
+                          style={{ fontFamily: 'var(--font-body)' }}>{s.label}</span>
+                      </div>
+                      <span className="text-[10px] text-slate-400">{s.sub}</span>
+                    </div>
+                    <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        animate={{ width: `${s.pct}%` }}
+                        transition={{ duration: 0.9, delay: 0.6 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                        className="h-full rounded-full"
+                        style={{ background: 'linear-gradient(90deg, #0891b2, #0d9488)' }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Bottom tag */}
+              <div className="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Users className="w-3.5 h-3.5 text-slate-400" />
+                  <span className="text-[11px] text-slate-400" style={{ fontFamily: 'var(--font-body)' }}>
+                    50+ data networks connected
+                  </span>
+                </div>
+                <span className="text-[10px] font-bold text-cyan-600 tracking-wide uppercase">
+                  Updated 2s ago
+                </span>
+              </div>
             </div>
+
+            {/* Floating badge — top left */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.9 }}
+              className="absolute -top-4 -left-4 bg-white rounded-2xl border border-slate-100 shadow-lg px-4 py-2.5 flex items-center gap-2.5"
+            >
+              <span className="text-xl">🎯</span>
+              <div>
+                <div className="text-xs font-bold text-slate-800" style={{ fontFamily: 'var(--font-display)' }}>Intent matched</div>
+                <div className="text-[10px] text-slate-400">3 hot leads just added</div>
+              </div>
+            </motion.div>
+
+            {/* Floating badge — bottom right */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 1.05 }}
+              className="absolute -bottom-4 -right-4 bg-white rounded-2xl border border-slate-100 shadow-lg px-4 py-2.5 flex items-center gap-2.5"
+            >
+              <span className="text-xl">⚡</span>
+              <div>
+                <div className="text-xs font-bold text-slate-800" style={{ fontFamily: 'var(--font-display)' }}>CRM synced</div>
+                <div className="text-[10px] text-slate-400">Salesforce · 1 min ago</div>
+              </div>
+            </motion.div>
           </motion.div>
 
         </div>
